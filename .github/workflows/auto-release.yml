@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  numpy-test:
+  auto-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,4 +22,4 @@ jobs:
       - name: Install dependencies
         run: pip install -r ${{ github.workspace }}/requirements.txt
       - name: Run Python
-        run: python python-sample.py
+        run: python tools/auto-commit.py
