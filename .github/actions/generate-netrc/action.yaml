@@ -12,15 +12,15 @@ inputs:
     description: Personal access token
     required: true
 
-  runs:
-    using: composite
-    steps:
-      - shell: bash
-        run: |
-          mkdir -p "$(dirname ${{ inputs.file-name }})"
-          if ! printenv PAT > dev/null; then
-            export PAT="${{ inputs.pat }}"
-          fi
-          cat <<EOF>> "${{ inputs.file-name }}"
-          machine ${{ inputs.host-name }} login ${PAT}
-          EOF
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        mkdir -p "$(dirname ${{ inputs.file-name }})"
+        if ! printenv PAT > dev/null; then
+          export PAT="${{ inputs.pat }}"
+        fi
+        cat <<EOF>> "${{ inputs.file-name }}"
+        machine ${{ inputs.host-name }} login ${PAT}
+        EOF
