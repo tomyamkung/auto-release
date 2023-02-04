@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Git remote config
+        run: |
+          echo "https://tomyamkung:${{ secrets.GITHUBPAT }}@github.com/tomyamkung/test-app-a.git"
+          git remote add origin https://tomyamkung:${{ secrets.GITHUBPAT }}@github.com/tomyamkung/test-app-a.git
       - name: Generate netrc for Git
         uses: ./.github/actions/generate-netrc
         with:
