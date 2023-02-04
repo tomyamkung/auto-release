@@ -20,7 +20,7 @@ jobs:
           pat: ${{ secrets.GITHUBPAT }}
       - name: Debug
         run: |
-          ls -al
+          cat .netrc
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
