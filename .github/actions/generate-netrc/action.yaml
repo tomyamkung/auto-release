@@ -10,6 +10,7 @@ inputs:
     required: true
   pat:
     description: Personal access token
+    required: true
 
   runs:
     using: composite
