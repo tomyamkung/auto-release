@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Generate netrc for Git
-        uses: tomyamkung/shared-ci/generate-netrc@main
+        uses: ./.github/actions/generate-netrc
         with:
           file-name: ${{ github.workspace }}/.netrc
           host-name: github.com
