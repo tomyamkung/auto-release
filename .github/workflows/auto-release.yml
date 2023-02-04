@@ -15,8 +15,7 @@ jobs:
       - name: Git remote config
         run: |
           echo "https://tomyamkung:${{ secrets.GITHUBPAT }}@github.com/tomyamkung/test-app-a.git"
-          git remote rm origin
-          git remote add origin https://tomyamkung:${{ secrets.GITHUBPAT }}@github.com/tomyamkung/test-app-a.git
+          git config --list
       - name: Generate netrc for Git
         uses: ./.github/actions/generate-netrc
         with:
