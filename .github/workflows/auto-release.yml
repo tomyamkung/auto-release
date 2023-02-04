@@ -18,6 +18,9 @@ jobs:
           file-name: ${{ github.workspace }}/.netrc
           host-name: github.com
           pat: ${{ secrets.GITHUBPAT }}
+      - name: Debug
+        run: |
+          ls -al
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
