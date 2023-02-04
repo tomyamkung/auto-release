@@ -1,7 +1,7 @@
 import git
 
 # clone
-url = 'https://github.com/tomyamkung/test-app-a.git'
+url = 'git@github.com:tomyamkung/test-app-a.git'
 to_path = 'checkout-repo'
 git.Repo.clone_from(
     url,
