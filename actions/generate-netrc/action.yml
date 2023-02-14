@@ -1,0 +1,25 @@
+---
+name: Generate netrc
+description: Generate netrc file
+inputs:
+  file-name:
+    description: File name of netrc
+    required: true
+  host-name:
+    description: Host name
+    required: true
+  pat:
+    description: Personal access token
+
+  runs:
+    using: composite
+    steps:
+      - shell: bash
+        run: |
+          mkdir -p "$(dirname ${{ inputs.file-name }})"
+          if ! printenv PAT > dev/null; then
+            export PAT="${{ inputs.pat }}"
+          fi
+          cat <<EOF>> "${{ inputs.file-name }}"
+          machine ${{ inputs.host-name }} login ${PAT}
+          EOF
