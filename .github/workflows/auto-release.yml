@@ -37,3 +37,4 @@ jobs:
         run: pip install -r ${{ github.workspace }}/requirements.txt
       - name: Run Python
         run: python tools/auto-commit.py
+        
