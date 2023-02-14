@@ -16,6 +16,11 @@ jobs:
         run: |
           echo "https://tomyamkung:${{ secrets.GITHUBPAT }}@github.com/tomyamkung/test-app-a.git"
           git config --list
+      - name: Setup SSH
+        uses: ./.github/actions/git-ssh-setup
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known-hosts: ${{ secrets.SSH_KNOWNHOST }}
       - name: Generate netrc for Git
         uses: ./.github/actions/generate-netrc
         with:

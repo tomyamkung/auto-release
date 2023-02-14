@@ -1,0 +1,28 @@
+---
+name: 'ssh setup'
+description: 'Setup ssh connections'
+inputs:
+  key:
+    description: 'Content of private key to use with ssh'
+    required: true
+  known-hosts:
+    description: 'known hosts'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Initialize repo
+      shell: bash
+      env:
+        SSH_DIR: ${{ github.workspace }}/git-ssh
+      run: |
+        mkdir -p "${SSH_DIR}"
+        echo '${{ inputs.key }}' > "${SSH_DIR}/id_rsa"
+        chmod 0400 "${SSH_DIR}/id_rsa"
+        echo '${{ inputs.known-hosts }}' > "${SSH_DIR}/known_hosts"
+        echo \
+          "GIT_SSH_COMMAND=ssh -i ${SSH_DIR}/id_rsa" \
+          "-o UserKnownHostsFile=${SSH_DIR}/known_hosts" \
+          >> "${GITHUB_ENV}"
+        echo "GIT_SSH_DIR=${SSH_DIR}" >> "${GITHUB_ENV}"
