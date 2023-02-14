@@ -17,7 +17,7 @@ jobs:
           echo "https://tomyamkung:${{ secrets.GITHUBPAT }}@github.com/tomyamkung/test-app-a.git"
           git config --list
       - name: Generate netrc for Git
-        uses: ./.github/actions/generate-netrc
+        uses: tomyamkung/shared-ci/generate-netrc@main
         with:
           file-name: ${{ github.workspace }}/.netrc
           host-name: github.com
