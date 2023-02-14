@@ -12,6 +12,8 @@ git.Repo.clone_from(
 with open('checkout-repo/test.txt', 'wt') as fp:
     fp.write('add-string')
 
+repo = git.Repo(to_path)
+
 # git add    
 repo.git.add('test.txt')
 
