@@ -18,7 +18,7 @@ repo = git.Repo(to_path)
 repo.git.add('test.txt')
 
 # git commit
-repo.git.commit('.','-m','\"auto-commit\"')
+repo.git.commit('test.txt', message='update', author='tomyamkung')
 
 # git push
 repo.git.push ('origin', 'main')
