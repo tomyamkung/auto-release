@@ -7,11 +7,11 @@ date = datetime.datetime.now()
 # clone
 url = 'git@github.com:tomyamkung/test-app-a.git'
 to_path = 'checkout-repo'
-repo = git.Repo(to_path)
 git.Repo.clone_from(
     url,
     to_path,
     branch='main')
+repo = git.Repo(to_path)
 
 # checkout new branch
 repo.git.branch() 
