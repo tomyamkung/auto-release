@@ -6,6 +6,8 @@ on:
       - main
       - feature/**
   workflow_dispatch:
+  repository_dispatch:
+    types: [dispatch]  
 
 jobs:
   auto-release:
