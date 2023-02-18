@@ -15,8 +15,8 @@ repo = git.Repo(to_path)
 
 # checkout new branch
 repo.git.branch() 
-repo.git.branch(new) 
-repo.git.checkout(new)
+repo.git.branch('new_branch') 
+repo.git.checkout('new_branch')
 
 # update version
 with open('checkout-repo/test.txt', 'wt') as fp:
@@ -29,4 +29,4 @@ repo.git.add('test.txt')
 repo.git.commit('test.txt','-m','\"auto-commit\"')
 
 # git push
-repo.git.push ('origin', new)
+repo.git.push ('origin', 'new_branch')
