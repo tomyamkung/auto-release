@@ -1,4 +1,8 @@
 import git
+import datetime
+
+# date
+date = datetime.datetime.now()
 
 # clone
 url = 'git@github.com:tomyamkung/test-app-a.git'
@@ -10,7 +14,7 @@ git.Repo.clone_from(
 
 # update version
 with open('checkout-repo/test.txt', 'wt') as fp:
-    fp.write('add-string')
+    fp.write(date)
 
 repo = git.Repo(to_path)
 
