@@ -14,7 +14,7 @@ git.Repo.clone_from(
 
 # update version
 with open('checkout-repo/test.txt', 'wt') as fp:
-    fp.write(date)
+    fp.write(str(date))
 
 repo = git.Repo(to_path)
 
