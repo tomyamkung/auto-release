@@ -5,7 +5,7 @@ import datetime
 date = datetime.datetime.now()
 
 # clone
-url = 'git@github.com:tomyamkung/test-app-a.git'
+url = 'git@github.com:tomyamkung/test-app-b.git'
 to_path = 'checkout-repo'
 git.Repo.clone_from(
     url,
@@ -15,8 +15,8 @@ repo = git.Repo(to_path)
 
 # checkout new branch
 repo.git.branch() 
-repo.git.branch(str(date)) 
-repo.git.checkout(str(date))
+repo.git.branch(new) 
+repo.git.checkout(new)
 
 # update version
 with open('checkout-repo/test.txt', 'wt') as fp:
@@ -29,4 +29,4 @@ repo.git.add('test.txt')
 repo.git.commit('test.txt','-m','\"auto-commit\"')
 
 # git push
-repo.git.push ('origin', str(date))
+repo.git.push ('origin', new)
